@@ -1,5 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
+using Assignment3.Models;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
+var provider = builder.Services.BuildServiceProvider();
+var config = provider.GetRequiredService<IConfiguration>();
+builder.Services.AddDbContext<Assignment3Context>(
+    item => item.UseSqlServer(config.GetConnectionString("dbcs")));
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -14,7 +20,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+}   
 
 app.UseHttpsRedirection();
 
