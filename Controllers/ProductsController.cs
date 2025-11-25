@@ -1,8 +1,8 @@
-﻿using Assignment3.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProductRegistration_Group.Models;
 using static System.Net.WebRequestMethods;
 
-namespace Assignment3.Controllers
+namespace ProductRegistration_Group.Controllers
 {
     public class ProductsController : Controller
     {

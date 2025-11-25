@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Assignment3.Models;
+using ProductRegistration_Group.Models;
 
-namespace Assignment3.Controllers
+namespace ProductRegistration_Group.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

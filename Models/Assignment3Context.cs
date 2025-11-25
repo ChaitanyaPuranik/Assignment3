@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Assignment3.Models;
+namespace ProductRegistration_Group.Models;
 
 public partial class Assignment3Context : DbContext
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Assignment3.Models;
+namespace ProductRegistration_Group.Models;
 
 public partial class Product
 {
