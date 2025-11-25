@@ -21,10 +21,7 @@ public partial class Assignment3Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (!optionsBuilder.IsConfigured)
-        {
-
-        }
+        // Do nothing here. Configuration is handled by dependency injection in Program.cs.
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
