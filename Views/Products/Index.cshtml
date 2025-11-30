@@ -10,24 +10,29 @@
         color: #2c3e50;
         font-weight: 600;
     }
+
     .table {
         margin-top: 20px;
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    .table th, .table td {
-        vertical-align: middle;
-        text-align: center;
-    }
-    .table th {
-        background-color: #f8f9fa;
-        color: #495057;
-        font-weight: 500;
-    }
-    .table tr:hover {
-        background-color: #f1f3f4;
-    }
+
+        .table th, .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        .table tr:hover {
+            background-color: #f1f3f4;
+        }
+
     a.btn-create {
         margin-bottom: 15px;
         background-color: #007bff;
@@ -37,57 +42,52 @@
         text-decoration: none;
         transition: background 0.2s;
     }
-    a.btn-create:hover {
-        background-color: #0056b3;
-    }
+
+        a.btn-create:hover {
+            background-color: #0056b3;
+        }
+
     .action-links a {
         margin: 0 4px;
         color: #007bff;
         text-decoration: none;
     }
-    .action-links a:hover {
-        text-decoration: underline;
-    }
+
+        .action-links a:hover {
+            text-decoration: underline;
+        }
 </style>
 
-<h1>Index</h1>
+<h1>Products</h1>
 
 <p>
     <a asp-action="Create" class="btn-create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
-            </th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Price)</th>
+            <th>@Html.DisplayNameFor(model => model.CategoryId)</th>
+            <th>Actions</th>
         </tr>
     </thead>
+
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
-            </td>
-            <td class="action-links">
-                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.CategoryId</td>
+
+                <td class="action-links">
+                    <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
+                    <a asp-action="Patch" asp-route-id="@item.ProductId">Patch</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

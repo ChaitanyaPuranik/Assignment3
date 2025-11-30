@@ -3,11 +3,16 @@ using ProductRegistration_Group.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
+
+//Adding MVC + API support - F
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers(); 
 
 
 var provider = builder.Services.BuildServiceProvider();
 var config = provider.GetRequiredService<IConfiguration>();
+
+//Register db context
 builder.Services.AddDbContext<Assignment3Context>(
     item => item.UseSqlServer(config.GetConnectionString("dbcs")));
 
