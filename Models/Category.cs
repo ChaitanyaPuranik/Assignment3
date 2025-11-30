@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace ProductRegistration_Group.Models;
 
 public partial class Category
-{
-    public int Id { get; set; }
+    {
+        [Key]
+        public int Id { get; set; }
 
-    public string CategoryName { get; set; } = null!;
-}
+        [Required(ErrorMessage = "Category Name is required")]
+        [StringLength(50, ErrorMessage = "Name cannot exceed 50 characters")]
+        public string CategoryName { get; set; } = null!;
+    }
