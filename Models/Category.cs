@@ -13,4 +13,4 @@ public partial class Category
         [Required(ErrorMessage = "Category Name is required")]
         [StringLength(50, ErrorMessage = "Name cannot exceed 50 characters")]
         public string CategoryName { get; set; } = null!;
-    }
+    }  
