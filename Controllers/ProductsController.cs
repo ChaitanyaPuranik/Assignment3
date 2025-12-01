@@ -39,8 +39,18 @@ namespace ProductRegistration_Group.Controllers
         //Create [get]
         public IActionResult Create()
         {
+            // Get all categories from API
+            HttpResponseMessage response = client.GetAsync("https://localhost:7085/api/CategoriesAPI").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var categories = response.Content.ReadFromJsonAsync<List<Category>>().Result;
+                ViewBag.Categories = categories;
+            }
+
             return View();
         }
+
 
         //Create [post]
         [HttpPost]
@@ -49,6 +59,7 @@ namespace ProductRegistration_Group.Controllers
             HttpResponseMessage response = client.PostAsJsonAsync(url, product).Result;
             if (response.IsSuccessStatusCode)
             {
+
                 return RedirectToAction("Index");
             }
 
